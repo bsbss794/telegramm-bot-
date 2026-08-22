@@ -73,7 +73,7 @@ def check_upcoming_appointments():
             AND start_time BETWEEN %s AND %s
         """, (now, target_time))
     appointments = cursor.fetchall()
-    print(f"проверка! найдено: {Len(appointments)}") 
+    print(f"проверка! найдено: {len(appointments)}") 
 
     for app in appointments:
         cursor = db.cursor()
