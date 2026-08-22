@@ -59,6 +59,7 @@ def check_upcoming_appointments():
     """Проверяет записи, которые начнутся через час"""
     now = datetime.now()
     target_time = now + timedelta(hours=1)
+    print(f"проверка! сейчас: {now} ищу: {target_time}") 
 
     db = get_db_connection()
     if db is None:
@@ -72,6 +73,7 @@ def check_upcoming_appointments():
             AND start_time BETWEEN %s AND %s
         """, (now, target_time))
     appointments = cursor.fetchall()
+    print(f"проверка! найдено: {Len(appointments)}") 
 
     for app in appointments:
         cursor = db.cursor()
