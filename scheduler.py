@@ -57,7 +57,7 @@ def mark_reminder_sent(appointment_id):
 
 def check_upcoming_appointments():
     """Проверяет записи, которые начнутся через час"""
-    now = datetime.now()
+    now = datetime.now() + timedelta(hours=3)
     target_time = now + timedelta(hours=1)
     print(f"проверка! сейчас: {now} ищу: {target_time}") 
 
@@ -73,7 +73,6 @@ def check_upcoming_appointments():
             AND start_time BETWEEN %s AND %s
         """, (now, target_time))
     appointments = cursor.fetchall()
-    print(f"проверка! найдено: {len(appointments)}") 
 
     for app in appointments:
         cursor = db.cursor()
