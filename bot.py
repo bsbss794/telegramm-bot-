@@ -9,9 +9,7 @@ from dotenv import load_dotenv
 TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
 SERVER_URL = "https://server-for-biautiful-bot-production.up.railway.app/"
-ADMIN_ID = os.getenv("ADMIN_ID")
-if not ADMIN_ID:
-    ADMIN_ID=6154565499
+ADMIN_ID = 6154565499
 
 @bot.message_handler(commands=['start'])  # стартовая команда
 def start(message):
